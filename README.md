@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recetario Frontend
 
-## Getting Started
+Frontend web desarrollado con **Next.js**, diseñado para consumir la API REST del proyecto **Recetario**.
 
-First, run the development server:
+---
+
+## Descripción
+
+Esta aplicación representa la capa visual del proyecto y se divide en:
+
+- Zona pública (recetas, información general)
+- Zona privada (panel de usuario según rol)
+
+El frontend está construido con un enfoque moderno, accesible y escalable.
+
+---
+
+## Características
+
+- Framework **Next.js**
+- Arquitectura basada en componentes
+- Integración con API Laravel mediante fetch / axios
+- Preparado para autenticación con tokens (Sanctum)
+- Diseño responsive
+
+---
+
+## Tecnologías
+
+- **Next.js (App Router)**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **next-themes** (modo oscuro / claro)
+- **clsx + tailwind-merge** (gestión de clases)
+- **lucide-react** (iconografía)
+
+## Dependencias adicionales
+
+El proyecto utiliza algunas librerías auxiliares para mejorar la experiencia de desarrollo y la interfaz:
+
+- `next-themes` → gestión de modo oscuro / claro
+- `clsx` y `tailwind-merge` → composición de clases CSS
+- `lucide-react` → iconos
+
+Opcionalmente, para formularios avanzados:
+- `react-hook-form`
+- `zod`
+- `@hookform/resolvers`
+
+---
+
+## Comunicación con la API
+
+La aplicación consume la API REST desarrollada en Laravel:
+
+[http://localhost:8000/api]
+
+
+Gestión de autenticación basada en tokens.
+
+---
+
+## Instalación
+
+Debo poner en la isntalacion del proyecto comandos como estos? npm install next-themes clsx tailwind-merge lucide-react
+para indicar que también los lleva el proyecto? npm install react-hook-form zod @hookform/resolvers
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+La aplicación estará disponible en:
+[http://localhost:3000]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estado del proyecto
+- 🟡 En desarrollo
+- Integración con backend en progreso
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Autor
 
-To learn more about Next.js, take a look at the following resources:
+**Manuel Maldonado**
+Proyecto fullstack con Laravel + Next.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
