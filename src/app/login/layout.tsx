@@ -1,4 +1,4 @@
-// Para aprender a crear distintos layouts voy a crear este específico para la página de login, con un título y descripción personalizados.
+
 import type React from "react";
 
 import type { Metadata } from "next";
@@ -22,14 +22,13 @@ export const metadata: Metadata = {
 
 export default function LoginLayout({
     children
-}: Readonly<{ children: React.ReactNode }>) { // Que hace este readonlu aqui en medio? children entra como un parametro en la funcion?
+}: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="es">{/* en Vercel me pone despues del lang lo siguiente suppressHydrationWarning-> esto que es??*/}
+        <html lang="es">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >{/*Aqui arriba y abajo iria un componente Themeprovider segun vercel, imagino que es el componente para los temas calros y oscuros*/}
+            >
                 {children}
-                {/*Aqui abajo aprte del cierre del themeprovider ha metido también un componente analytichs que luego observaremos, de momento vamos a lo sencillo para aprender.*/}
             </body>
         </html>
     )}
