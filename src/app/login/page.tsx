@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { login } from "@/services/auth.service";
+import { useRouter } from "next/navigation";
 
 
 
@@ -18,14 +20,25 @@ export default function LoginPage() {
   const [estaCargando, setCargando] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const manejarEnvio = async (evento: React.FormEvent) => {
-    evento.preventDefault();
+  const manejarEnvio = async (e: React.FormEvent) => {
+    e.preventDefault();
     setCargando(true);
-    // TODO: implementar la logica para enviar datos al servidor.
-    console.log("Email:", email);
-    setTimeout(() => {setCargando(false)}, 1500); // simular llamada al servidor
-  }
+
+    try {
+      await login(email, password);
+
+      // Si llega aquí, Laravel ha creado la cookie
+      router.push("/dashboard");
+    } catch (error: any) {
+      alert(
+        error.response?.data?.message ?? "Error al iniciar sesión"
+      );
+    } finally {
+      setCargando(false);
+    }
+  };
   return (
     <main className="min-h-screen flex items-center justify-center flex-column ">
       <nav className="fixed top-4 right-4">
@@ -52,7 +65,7 @@ export default function LoginPage() {
             <p className="text-muted-foreground text-sm mt-2">Iniciar sesión</p>
           </header>
           {/* Formulario de login */}
-          <form action="/api/login" onSubmit={manejarEnvio}>
+          <form onSubmit={manejarEnvio}>
             <div className="my-4">
               {/* Campo de email */}
               <Label htmlFor="email" id="email-label">Email</Label>

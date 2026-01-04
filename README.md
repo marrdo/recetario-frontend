@@ -34,6 +34,8 @@ El frontend está construido con un enfoque moderno, accesible y escalable.
 - **next-themes** (modo oscuro / claro)
 - **clsx + tailwind-merge** (gestión de clases)
 - **lucide-react** (iconografía)
+- **Axios** (cliente HTTP)
+
 
 ## Dependencias adicionales
 
@@ -42,6 +44,8 @@ El proyecto utiliza algunas librerías auxiliares para mejorar la experiencia de
 - `next-themes` → gestión de modo oscuro / claro
 - `clsx` y `tailwind-merge` → composición de clases CSS
 - `lucide-react` → iconos
+- `axios` → cliente HTTP para comunicación con la API
+
 
 Opcionalmente, para formularios avanzados:
 - `react-hook-form`
@@ -63,8 +67,6 @@ Gestión de autenticación basada en tokens.
 
 ## Instalación
 
-Debo poner en la isntalacion del proyecto comandos como estos? npm install next-themes clsx tailwind-merge lucide-react
-para indicar que también los lleva el proyecto? npm install react-hook-form zod @hookform/resolvers
 
 ```bash
 npm install
