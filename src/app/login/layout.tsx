@@ -22,17 +22,9 @@ export const metadata: Metadata = {
 };
 
 export default function LoginLayout({
-    children
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-      <html lang="es" suppressHydrationWarning>
-          <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          >
-            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-              {children}
-            </ThemeProvider>
-          </body>
-      </html>
-  )
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }

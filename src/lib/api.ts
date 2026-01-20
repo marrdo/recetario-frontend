@@ -1,16 +1,17 @@
 import axios from "axios";
 
 /**
- * Cliente HTTP centralizado.
+ * Cliente HTTP centralizado (AXIOS)
  *
- * Piensa en esto como:
- * - Un navegador automático
- * - Siempre apunta a Laravel
+ * Este archivo es:
+ * - El "mensajero" entre Next y Laravel
+ * - Siempre habla con el backend
  * - Siempre envía cookies
  *
- * IMPORTANTE:
- * withCredentials = true
- * → permite que el navegador mande cookies (Sanctum)
+ * IMPORTANTE PARA SANCTUM (SPA):
+ * - withCredentials: true
+ *   → permite enviar y recibir cookies HTTP-only
+ *   → SIN ESTO, Sanctum NO funciona
  */
 const api = axios.create({
   baseURL: "http://localhost:8000",

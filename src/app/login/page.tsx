@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { login } from "@/services/auth.service";
+import { csrf, login, getUsuarioActual } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 
 
@@ -27,9 +27,16 @@ export default function LoginPage() {
     setCargando(true);
 
     try {
+      // Inicializar Sanctum
+      await csrf();
+
+      // Login
       await login(email, password);
 
-      // Si llega aquí, Laravel ha creado la cookie
+      // Verificar sesión activa
+      await getUsuarioActual();
+
+      // 4️⃣ Redirigimos
       router.push("/dashboard");
     } catch (error: any) {
       alert(
